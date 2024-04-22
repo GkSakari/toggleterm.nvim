@@ -188,7 +188,7 @@ local function _get_dir(dir)
   if dir then
     return fn.expand(dir)
   else
-    return vim.loop.cwd()
+    return LazyVim.root.get()
   end
 end
 
