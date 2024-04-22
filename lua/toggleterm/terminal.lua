@@ -485,8 +485,8 @@ end
 ---@param size number?
 ---@param direction string?
 function Terminal:open(size, direction)
-  local cwd = fn.getcwd()
-  self.dir = _get_dir(config.autochdir and cwd or self.dir)
+  local cwd = LazyVim.root.get()
+  self.dir = _get_dir(self.dir or cwd)
   ui.set_origin_window()
   if direction then self:change_direction(direction) end
   if not self.bufnr or not api.nvim_buf_is_valid(self.bufnr) then
