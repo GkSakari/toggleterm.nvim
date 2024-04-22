@@ -486,6 +486,9 @@ end
 ---@param direction string?
 function Terminal:open(size, direction)
   local cwd = LazyVim.root.get()
+  print("self.dir: ", self.dir)
+  print("cwd: ", cwd)
+  print(debug.traceback())
   self.dir = _get_dir(self.dir or cwd)
   ui.set_origin_window()
   if direction then self:change_direction(direction) end
